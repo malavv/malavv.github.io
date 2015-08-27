@@ -2,6 +2,7 @@
 
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../malavv-editor/malavv-editor.html">
 <link rel="import" href="../malavv-infobar/malavv-infobar.html">
@@ -9,35 +10,33 @@
 <link rel="import" href="../malavv-config/malavv-config.html">
 
 <dom-module id="malavv-site">
-
   <style>
     :host {
       @apply(--layout-horizontal);
-    };
-
-    :host #cards {
-      background: gray;
-      font-family: 'RobotoDraft', sans-serif;
-      background-image: url('../../img/texture9.jpg');
-      flex-wrap: wrap;
-      padding: 10px;
-      justify-content: center;
-      color:white;
     }
-    :host iron-pages {
-      width: 100%;
-      height: 100%;
-    }
-    :host #main {
-      @apply(--layout-horizontal);
-    };
     :host #cards {
       @apply(--layout-horizontal);
       @apply(--layout-flex);
-      @apply(--layout-wrap);
-    };
+      @apply(--layout-wrap); 
+
+      font-family: 'RobotoDraft', sans-serif;
+      background-image: url('../../img/texture9.jpg');
+      overflow-y: scroll;
+      position: relative;
+      padding: 10px;
+    }
+
+    iron-pages {
+      @apply(--layout-fit);
+      margin: auto;
+      overflow-y: hidden;
+    }
+
+    :host #main {
+      @apply(--layout);
+      height: 100%;
+    }
   </style>
-  <link rel="stylesheet" type="text/css" href="malavv-site.css">
 
   <template>
     <iron-ajax
@@ -62,51 +61,6 @@
         </div>
       </div>
     </iron-pages>
-
-        <!--
-        <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
-
-          <section>
-
-            <div class="chip-container" hero-p on-tap="{{transition}}">
-
-              <template repeat="{{cards as item}}">
-
-                <div class="chip" hero-id="{{item.title}}-{{item.secondary}}" hero?="{{selectedAlbum === item }}">
-                  <div class="chip-top" style="background: yellow;" hero-id="{{item.title}}-{{item.secondary}}-art" hero?="{{selectedAlbum === item}}"></div>
-                  <div class="chip-bottom">
-                    <div class="chip-album-title">{{item.secondary}}</div>
-                    <div class="chip-artist">{{item.title}}</div>
-                  </div>
-                </div>
-
-              </template>
-
-            </div>
-          </section>
-
-          <section id="details">
-
-            <div class="card" layout horizontal hero-id="{{selectedAlbum.title}}-{{selectedAlbum.secondary}}" hero on-tap="{{transition}}">
-              <div class="card-left" style="background: yellow;" hero-id="{{selectedAlbum.title}}-{{selectedAlbum.secondary}}-art" hero></div>
-              <div class="card-right" flex>
-                <div layout horizontal center>
-                  <div>
-                    <div class="card-icon" style="background: yellow;"></div>
-                  </div>
-                  <div flex>
-                    <div class="card-album-title">{{selectedAlbum.secondary}}</div>
-                    <div class="card-album-artist">{{selectedAlbum.title}}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </section>
-
-        </core-animated-pages>
-        -->
-      
     </template>
   </template>
 
@@ -135,5 +89,7 @@
       }
     });
   </script>
+
+
 
 </dom-module>
