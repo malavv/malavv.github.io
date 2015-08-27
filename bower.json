@@ -1,0 +1,19 @@
+{
+  "name": "malavv-homeport",
+  "version": "1.0.0",
+  "authors": [
+    "Maxime Lavigne (malavv) <duguigne@gmail.com>"
+  ],
+  "description": "Website content for malavv.com",
+  "main": "index.html",
+  "keywords": [
+    "malavv"
+  ],
+  "license": "GPLv2",
+  "homepage": "malavv.com",
+  "dependencies": {
+    "iron-elements": "PolymerElements/iron-elements#~1.0.3",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.5",
+    "polymer": "Polymer/polymer#^1.1.0"
+  }
+}

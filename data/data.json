@@ -1,0 +1,246 @@
+{
+  "lastEdit": "2014-12-30T00:06:21.356Z",
+  "cards": [
+    {
+      "title": "Laval Virtual",
+      "secondary": "Intl Competition",
+      "category": "competition",
+      "date": {
+        "start": "April 2012",
+        "end": ""
+      },
+      "image": "cards/laval.png",
+      "tags": [
+        "C#",
+        "Kinect",
+        "OpenCL"
+      ],
+      "content": {
+        "position": 3,
+        "outOf": 25,
+        "keywords": [
+          "Virtual Reality",
+          "Against the clock",
+          "Technology Integration"
+        ]
+      }
+    },
+    {
+      "title": "CIII",
+      "secondary": "Against the clock",
+      "category": "competition",
+      "date": {
+        "start": "May 2012",
+        "end": ""
+      },
+      "image": "cards/polytechnique.png",
+      "tags": [
+        "C++",
+        "CS",
+        "Algorithms"
+      ],
+      "content": {
+        "position": 2,
+        "outOf": 250,
+        "keywords": [
+          "Solving Complex Algorithms",
+          "Time and Space Constraints",
+          "Problem solving",
+          "Mathematics"
+        ]
+      }
+    },
+    {
+      "title": "Bachelor of Engineering",
+      "secondary": "1st Cycle",
+      "category": "education",
+      "date": {
+        "start": "2008",
+        "end": "2012"
+      },
+      "image": "cards/lassonde.png",
+      "tags": [
+        "CS",
+        "Engineering",
+        "Project Mgmt"
+      ],
+      "content": {
+        "position": 0,
+        "outOf": 0,
+        "keywords": [],
+        "subject": "Software Engineering",
+        "speciality": "Clinical Informatics"
+      }
+    },
+    {
+      "title": "Google Inc",
+      "secondary": "Open Source Software",
+      "category": "internship",
+      "date": {
+        "start": "May 2009",
+        "end": "June 2012"
+      },
+      "image": "cards/google.png",
+      "tags": [
+        "C++",
+        "JS",
+        "Network"
+      ],
+      "content": {
+        "position": 0,
+        "outOf": 0,
+        "keywords": [
+          "Google Chrome",
+          "MultiProcess",
+          "MultiThread",
+          "100M+ Users",
+          "BrowserS ecurity"
+        ]
+      }
+    },
+    {
+      "title": "Trollmeme",
+      "secondary": "HTML5 Game Engine",
+      "category": "project",
+      "date": {
+        "start": "May 2010",
+        "end": "June 2011"
+      },
+      "image": "internal/placeholder.png",
+      "tags": [
+        "JS",
+        "HTML5",
+        "C#"
+      ],
+      "content": {
+        "position": 0,
+        "outOf": 0,
+        "keywords": [
+          "Promise A+",
+          "ES5",
+          "ES6",
+          "Entreprise JS"
+        ],
+        "authors": [
+          {
+            "name": "Nicolas Gauthier",
+            "ref": "https://www.linkedin.com/profile/view?id=135102679"
+          },
+          {
+            "name": "Éliott Mahout",
+            "ref": "https://www.linkedin.com/profile/view?id=44309135"
+          }
+        ]
+      }
+    },
+    {
+      "title": "A Hybrid Natural Language Approach to Manage Semantic Interoperability for Public Health Analytics.",
+      "secondary": "ISWC",
+      "category": "publications",
+      "date": {
+        "start": "April 2013",
+        "end": "April 2013"
+      },
+      "image": "cards/iswc.png",
+      "tags": [
+        "Ontology",
+        "NLI",
+        "Causal inference",
+        "Epidemiology"
+      ],
+      "content": {
+        "position": 0,
+        "outOf": 0,
+        "authors": [
+          {
+            "name": "Shaban-Nejad A.",
+            "ref": "http://example.org"
+          },
+          {
+            "name": "Okhmatovskaia A.",
+            "ref": "http://example.org"
+          },
+          {
+            "name": "Mondor L.",
+            "ref": "http://example.org"
+          },
+          {
+            "name": "Buckeridge D.L.",
+            "ref": "http://example.org"
+          }
+        ],
+        "abstract": "This paper discusses the integration of an ontology with a natural language query \nengine to calculate and interpret epidemiological indicators for population health \nassessment. In this paper, we discuss the application of this approach to one type of \npossible query, which retrieves health determinants, causally associated with diabetes \nmellitus."
+      }
+    },
+    {
+      "title": "Brewtarget",
+      "secondary": "Brewing Software",
+      "category": "starredProject",
+      "date": {
+        "start": "2012",
+        "end": ""
+      },
+      "image": "cards/brewtarget.png",
+      "tags": [
+        "C++",
+        "QT"
+      ],
+      "content": {
+        "position": 0,
+        "outOf": 0,
+        "keywords": [],
+        "link": "http://www.brewtarget.org/",
+        "description": "Brewtarget is FREE brewing software, and an open source beer recipe creation tool available for Linux, Mac, and Windows. It automatically calculates color, bitterness, and other parameters for you while you drag and drop ingredients into the recipe. Brewtarget also has many other tools such as priming sugar calculators, OG correction help, and a unique mash designing tool. It also can export and import recipes in BeerXML, allowing you to easily share recipes with friends who use BeerSmith or other programs. All of this means that Brewtarget is your single, free, go-to tool when crafting your beer recipes. "
+      }
+    },
+    {
+      "title": "Closures from JS to Golang",
+      "secondary": "Programming Language",
+      "category": "blog",
+      "date": {
+        "start": "May 2012",
+        "end": "May 2012"
+      },
+      "image": "internal/placeholder.png",
+      "tags": [
+        "C#",
+        "Python",
+        "Golang",
+        "JS"
+      ],
+      "content": {
+        "position": 0,
+        "outOf": 0,
+        "keywords": [],
+        "description": "You remember that weird feeling you had the last time you wrote non-trivial amounts on Javascript? Some sort of constant \"this shouldn't be happening impression\". Well JavaScript, or more specially ECMAScript the standard on which it is based, follows rules that may seem at times counter-intuitive. However some of those design decisions are the reason why JavaScript is so broadly accessible and generally accepted.",
+        "link": "http://malavv.blogspot.ca/2013/02/closures-from-js-to-golang.html"
+      }
+    },
+    {
+      "title": "Poly eRacing",
+      "secondary": "Electric Formula",
+      "category": "club",
+      "date": {
+        "start": "2010",
+        "end": "2012"
+      },
+      "image": "cards/e-racing.png",
+      "tags": [
+        "C++",
+        "Embedded Systems"
+      ],
+      "content": {
+        "position": 0,
+        "outOf": 0,
+        "keywords": [
+          "Formula E",
+          "Elecrtric Cars and Systems",
+          "Others Tags",
+          "More Tag",
+          "Power Electrics"
+        ],
+        "link": "http://www.felectrique.polymtl.ca/"
+      }
+    }
+  ]
+}

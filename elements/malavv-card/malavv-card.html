@@ -1,0 +1,272 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+<link rel="import" href="../malavv-card-compet/malavv-card-compet.html">
+<link rel="import" href="../malavv-card-education/malavv-card-education.html">
+<link rel="import" href="../malavv-card-internship/malavv-card-internship.html">
+<link rel="import" href="../malavv-card-project/malavv-card-project.html">
+<link rel="import" href="../malavv-card-publications/malavv-card-publications.html">
+<link rel="import" href="../malavv-card-starred/malavv-card-starred.html">
+<link rel="import" href="../malavv-card-blog/malavv-card-blog.html">
+<link rel="import" href="../malavv-card-club/malavv-card-club.html">
+
+<dom-module id="malavv-card">
+
+  <style>
+
+    :host {
+      @apply(--layout-horizontal)
+      @apply(--layout-stretch)
+    };
+
+    :host #details {
+      padding: 200px 10% 0;
+    }
+
+    :host .card {
+      height: 400px;
+      border-radius: 3px;
+      text-align: start;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    :host .card-left {
+      width: 400px;
+    }
+
+    :host .card-right {
+      padding: 24px;
+    }
+
+    :host .card-icon {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-right: 16px;
+    }
+
+    :host .card-album-title {
+      font-size: 2em;
+    }
+
+    :host {
+      width: 330px;
+      height: 200px;
+      display: block;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: #555;
+      /* cursor: pointer; */
+    }
+
+    :host .image {
+      width: 330px;
+      height: 200px;
+      z-index: 1;
+      position: absolute;
+      transition: all 0.5s ease-in-out;
+    }
+
+    :host .panel {
+      z-index: 2;
+      width: 300px;
+      height: 200px;
+      margin-left: 30px;
+      transition: all 0.5s ease-in-out;
+      background-color: #F9F9F9;
+      box-shadow: -5px 0 5px #333;
+      position: absolute;
+    }
+
+    :host .panel .head {
+      height: 37px;
+      border-bottom: 3px solid #BED89C;
+      justify-content: center;
+    }
+
+    :host .panel .head .smallSize {
+      font-size: 1.3em;
+    }
+
+    :host .panel .head .normalSize {
+      font-size: 1.6em;
+    }
+
+    :host .panel .head .name {
+      margin: auto;
+    }
+
+    :host .panel .summaryInfo {
+      height: 20px;
+      padding: 0 10px;
+      margin: 0;
+      justify-content: space-between;
+    }
+
+    :host .panel .summaryInfo .type {
+      font-size: 0.8em;
+    }
+
+    :host .panel .summaryInfo .date {
+      font-size: 0.8em;
+    }
+
+    :host .panel .footer {
+      height: 30px;
+      overflow: hidden;
+    }
+
+    :host .panel .footer .tags {
+      float: left;
+      width: 300px;
+      height: 60px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-top: 4px;
+      overflow: hidden;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    :host .panel .footer .tags li {
+      background-color: #7986cb;
+      border-radius: 6px;
+      border: 1px solid #666E99;
+      color: #fff;
+      padding: 3px;
+      font-size: 10pt;
+      margin-left: 5px;
+    }
+
+    :host .panel .footer .cardType {
+      position: absolute;
+      font-size: 12px;
+      color: #222;
+      margin-top: 8px;
+      margin-right: 5px;
+      font-weight: bold;
+      right: 0px;
+    }
+
+    :host(.hovered) .image {
+      z-index: 3;
+      transform: translateX(20.5em);
+      background-color: white;
+      transition: all 0.5s ease-in-out;
+    }
+    :host .panel {
+      @apply(--layout-vertical);
+    };
+    :host .panel .content {
+      @apply(--layout-vertical);
+      @apply(--layout-flex);
+    };
+  </style>
+
+  <template>
+    <img class="image" src="{{toUrl(card.image)}}"/>
+    <div class="panel" class="layout vertical">
+
+      <div class="head" class="layout horizontal">
+        <div class="name {{fromSizeToClass(card.title.length)}}">{{card.title}}</div>
+      </div>
+
+      <div class="summaryInfo" class="layout horizontal">
+        <div class="type">{{card.secondary | truncate(24, true)}}</div>
+        <!-- This is funky but needed to observe modification on the sub property -->
+        <div class="date">{{toDateString({start: card.date.start, end: card.date.end})}}</div>
+      </div>
+
+      <div class="content">
+        <iron-pages selected="{{toIndex(card.category)}}" class="flex">
+          <malavv-card-compet card="{{card}}"></malavv-card-compet>
+          <malavv-card-education card="{{card}}"></malavv-card-education>
+          <malavv-card-internship card="{{card}}"></malavv-card-internship>
+          <malavv-card-project card="{{card}}"></malavv-card-project>
+          <malavv-card-publications card="{{card}}"></malavv-card-publications>
+          <malavv-card-starred card="{{card}}"></malavv-card-starred>
+          <malavv-card-blog card="{{card}}"></malavv-card-blog>
+          <malavv-card-club card="{{card}}"></malavv-card-club>
+        </iron-pages>
+
+      </div>
+
+      <div class="footer">
+        <ol class="tags" class="layout horizontal">
+          <template is="dom-repeat" items="{{card.tags}}">
+            <li>{{item}}</li>
+          </template>
+        </ol>
+        <div class="cardType">{{toVisibleCategory(card.category)}}</div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'malavv-card',
+      properties: {
+        card: {
+          type: Object
+        }
+      },
+      titleSizeThreshold: 24,
+      toUrl: function(baseUrl) {
+        return '../../img/' + baseUrl;
+      },
+      toDateString: function(date) {
+        return new DateModel(date).toView();
+      },
+      fromSizeToClass: function(size) {
+        return size <  this.titleSizeThreshold ? "normalSize" :
+               size >= this.titleSizeThreshold ? "smallSize" :
+               "";
+      },
+      cardChanged: function() {
+        if (this.card.secondary === undefined || this.card.secondary === null || typeof(this.card.secondary) !== "string")
+          throw new Error("Invalid Card Secondary Title");
+        if (this.card.category === undefined || this.card.category === null || typeof(this.card.category) !== "string")
+          throw new Error("Invalid Card Category");
+      },
+      toVisibleCategory: function(category) {
+        switch (category) {
+          case 'competition': return 'Competition';
+          case 'education': return 'Education';
+          case 'internship': return 'Internship';
+          case 'project': return 'Pet Project';
+          case 'publications': return 'Publications';
+          case 'starredProject': return 'Starred Project';
+          case 'blog': return 'Article';
+          case 'club': return 'Club';
+          default: return 'N/A';
+        }
+      },
+      expand: function() {
+        this.classList.add("hovered");
+      },
+      collapse: function() {
+        this.classList.remove("hovered");
+      },
+      toIndex: function(category) {
+        switch (category) {
+          case 'competition': return 0;
+          case 'education': return 1;
+          case 'internship': return 2;
+          case 'project': return 3;
+          case 'publications': return 4;
+          case 'starredProject': return 5;
+          case 'blog': return 6;
+          case 'club': return 7;
+        }
+      },
+    });
+  </script>
+
+</dom-module>

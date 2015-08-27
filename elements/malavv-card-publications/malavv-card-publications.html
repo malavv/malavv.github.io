@@ -1,0 +1,71 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+
+<dom-module id="malavv-card-publications">
+  <style>
+    :host {
+      @apply(--layout-horizontal);
+    };
+
+    :host {
+      width: 100%;
+      margin: 0 5px;
+    }
+
+    :host .label {
+      text-align: center;
+      font-size: 0.7em;
+      border-top: 1px solid #666;
+      margin-bottom: -3px;
+    }
+
+    :host .authors {
+      margin-right: 3px;
+    }
+
+    :host .authors paper-shadow {
+      margin-bottom: 3px;
+      padding: 1px;
+      font-size: 0.8em;
+    }
+
+    :host .authors paper-shadow a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :host .abstract {
+      font-size: 0.8em;
+      text-align: justify;
+    }
+
+    :host .abstract div {
+      margin: 5px;
+    }
+  </style>
+
+  <template>
+    <div class="abstract layout vertical flex-3">
+      <div class="layout vertical flex">{{card.content.abstract}}</div>
+    </div>
+    <div class="authors layout vertical flex-2">
+      <div class="layout vertical flex">
+        <template is="dom-repeat" items="{{card.content.authors}}">
+          <paper-material elevation="1"><a href="{{item.ref}}">{{item.name}}</a></paper-material>
+        </template>
+        <paper-material elevation="1">and myself</paper-material>
+      </div>
+      <div class="label">Authors</div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'malavv-card-publications',
+      properties: {
+        card: Object
+      }
+    });
+  </script>
+</dom-module>

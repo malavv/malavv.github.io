@@ -1,0 +1,51 @@
+<link href="../bower_components/polymer/polymer.html" rel="import">
+
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/core-icon/core-icon.html" rel="import">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+<polymer-element name="my-icon-button" horizontal layout center attributes="label icon size">
+  <template>
+    <link rel="stylesheet" type="text/css" href="../css/my-icon-button.css">
+
+    <paper-ripple class="recenteringTouch" fit></paper-ripple>
+    <core-icon class="large" icon="{{icon}}" size="{{size}}"></core-icon>
+    <span>{{label}}</span>
+  </template>
+  <script>
+    Polymer('my-icon-button', {
+      publish: {
+
+        /**
+         * The label of the button.
+         *
+         * @attribute label
+         * @type string
+         * @default ''
+         */
+        label: '',
+
+        /**
+         * (optional) Specifies the icon name or index in the set of icons
+         * available in the icon set. If using this property, load the icon
+         * set separately where the icon is used. Should not use `src`
+         * if you are using this property.
+         *
+         * @attribute icon
+         * @type string
+         * @default ''
+         */
+        icon: {
+          value: ''
+        },
+        size: {
+          value: 24
+        }
+
+      },
+
+      z: 1
+    });
+  </script>
+</polymer-element>

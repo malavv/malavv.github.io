@@ -1,0 +1,9 @@
+= Mobile view =
+  * UX sur mobile est à chier.
+= Animation =
+  * weird d'être en arrière et être en avant au final.
+  * https://www.polymer-project.org/components/core-animated-pages/demos/music.html
+= Modifier le aspect ratio des images à la main. =
+
+0.61
+3/4

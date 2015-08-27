@@ -1,0 +1,88 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"> 
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+<link rel="import" href="../../bower_components/core-list/core-list.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/core-item/core-item.html">
+
+<polymer-element name="admin-cardlist" vertical layout attributes="cards selection">
+  <template>
+    <script src="../../bower_components/FileSaver/FileSaver.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/admin-cardlist.css">
+    <div class="header" horizontal layout>
+      <div class="title" flex>{{titleTxt}}</div>
+      <core-icon-button on-tap={{addNew}} icon="add"></core-icon-button>
+    </div>
+    <core-list id="list" on-core-activate={{onCardSelected}} data={{cards}} flex>
+      <template> 
+        <core-item style="justify-content: space-between;" class="row {{ {selected: selected} | tokenList }}" label="{{model.title}}">
+          <template if="{{selected}}">
+            <core-icon-button on-tap={{removeCard}} icon="remove-circle-outline"></core-icon-button>
+          </template>          
+        </core-item>
+      </template>
+    </core-list>
+    <div on-tap={{buildJson}} class="footer">{{buildtxt}}</div>
+  </template>
+  <script>
+
+    function createNew() {
+      return     {
+        "title": "{title}",
+        "secondary": "{secondary}",
+        "category": "competition",
+        "date": {
+          "start": "{start}",
+          "end": "{end}"
+        },
+        "image": "internal/placeholder.png",
+        "tags": [],
+        "content": {
+          "position": 0,
+          "outOf": 0,
+          "keywords": []
+        }
+     };
+    };
+
+    Polymer('admin-cardlist', {
+      buildtxt: "Build JSON",
+      titleTxt: "Cards",
+      addNew: function() { 
+        this.cards.push(createNew());
+        var idx = this.cards.length - 1;
+        this.$.list.selectItem(idx);
+        this.selection = this.cards[idx];
+      },
+      buildJson: function() {
+        saveAs(new Blob([
+          JSON.stringify({
+            lastEdit: new Date(),
+            cards: this.cards
+          })
+        ], {type: "application/json"}), "data.json");
+      },
+      /** Databinding is initiated now select the first item. */
+      domReady: function () { 
+        this.$.list.selectItem(0);
+        this.selection = this.cards[0];
+      },
+      onCardSelected: function(a, b, c) {
+        this.selection = this.$.list.selection;
+      },
+      removeCard: function(evt, b, c) { 
+        evt.stopPropagation();
+
+        var idx = -1, i;
+        for (i = 0; i < this.cards.length; i++) {
+          if (this.cards[i].title === c.parentNode.label) {
+            idx = i;
+          }
+        }
+        if (idx === -1) return;
+        this.cards.splice(idx, 1);
+        this.$.list.clearSelection();
+        this.selection = null;
+      }
+    });
+  </script>
+</polymer-element>

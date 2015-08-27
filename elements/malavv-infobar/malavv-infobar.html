@@ -1,0 +1,106 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../malavv-control/malavv-control.html">
+<link rel="import" href="../malavv-icons/malavv-icons.html">
+
+<dom-module id="malavv-infobar">
+
+  <style>
+  :host {
+    @apply(--layout-vertical)
+    width: 310px;
+  };
+
+  :host .panel {
+    background-color: black;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    height: 160px;
+    background-image: url('../../img/internal/me.png');
+  }
+  :host .panel .name {
+    font-size: 1.5em;
+    font-weight: 300;
+    padding-top: 24px;
+  }
+  :host .panel .workTitle {
+    font-size: 1em;
+    color: #004907;
+  }
+  :host .panel .handle {
+    font-size: 1.5em;
+    color: #3289C8;
+    font-weight: bold;
+    align-items: flex-end;
+    padding-bottom: 10px;
+  }
+  :host .panel .handle > img {
+    height: 30px;
+    width: 30px;
+    padding-bottom: 6px;
+    padding-right: 6px;
+  }
+  :host .panel .handle > span {}:host .panel {
+    background-color: white;
+    height: 100%;
+    width: 175px;
+    float: right;
+    opacity: 0.7;
+  }
+  </style>
+
+  <template>
+
+    <div class="panel" class="layout vertical center">
+      <div class="name">{{name}}</div>
+      <div class="workTitle">{{workTitle}}</div>
+      <div class="handle" class="layout horizontal flex">
+        <img src="../../img/internal/profile.png" />
+        <span>{{handle}}</span>
+      </div>
+    </div>
+
+    <div class="layout vertical flex">
+      <malavv-control icon="malavv-icons:email" size="100" label="Email" on-tap="onEmailCtrl" class="flex"></malavv-control>
+      <malavv-control icon="malavv-icons:card" size="100" label="vCard" on-tap="onVCardCtrl" class="flex"></malavv-control>
+      <malavv-control icon="malavv-icons:resume" size="100" label="Résumé" on-tap="onResumeCtrl" class="flex"></malavv-control>
+      <malavv-control icon="malavv-icons:papers" size="100" label="Publications" on-tap="onPublicationsCtrl" class="flex"></malavv-control>
+      <malavv-control icon="malavv-icons:papers" size="100" label="Wiki" on-tap="onWikiCtrl" class="flex"></malavv-control>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'malavv-infobar',
+      properties: {
+        name: { 
+          type: String,
+          value: 'Maxime Lavigne'
+        },
+        workTitle: { 
+          type: String,
+          value: 'Software Engineer'
+        },
+        handle: { 
+          type: String,
+          value: 'malavv'
+        }
+      },
+      onEmailCtrl: function() {
+        window.top.location.href = "mailto:maxime.lavigne@mail.mcgill.ca";
+      },
+      onVCardCtrl: function() {
+        window.top.location.href = "https://www.linkedin.com/profile/view?id=50640870";
+      },
+      onResumeCtrl: function() {
+        window.top.location.href = "data/2013-11-17.pdf";
+      },
+      onPublicationsCtrl: function() {
+        window.top.location.href = "https://www.researchgate.net/profile/Maxime_Lavigne";
+      },
+      onWikiCtrl: function() {}
+    });
+  </script>
+
+</dom-module>

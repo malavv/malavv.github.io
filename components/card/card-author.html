@@ -1,0 +1,81 @@
+<!-- General -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+<link rel="import" href="../../bower_components/polymer-filters/polymer-filters.html">
+
+<polymer-element 
+    name="card-author"
+    attributes="model"
+    horizontal layout>
+  <template>
+    <textarea value="{{view}}" flex></textarea>
+  </template>
+  <script>
+    function containsChar(character) {
+      return function(val, idx, arr) {
+        if (val === undefined || val === null) return false;
+        return val.indexOf(character) !== -1;
+      }
+    }
+    function notEmpty(val) {
+      return val.trim() !== "";
+    }
+
+    function authorify(value) {
+      var tokens = value.split('|');
+      return {
+        name: tokens[0].trim(),
+        ref: tokens[1].trim()
+      }
+    }
+    function deauthorify(value) {
+      return value.name.trim() + '|' + value.ref.trim();
+    }
+
+    function areArrayEqual(lhs, rhs) {
+      if (lhs === undefined || lhs === null || rhs === undefined || rhs === null) 
+        return false;
+      if (!Array.isArray(lhs) || !Array.isArray(rhs))
+        return false;
+      if (lhs.length !== rhs.length)
+        return false;
+      for (var i = 0; i < lhs.length; i++) {
+        if (lhs[i].name !== rhs[i].name || lhs[i].ref !== rhs[i].ref)
+          return false;
+      }
+      return true;
+    }
+
+    Polymer('card-author', {
+      view: "",
+      viewChanged: function() { 
+        var newModel = this.v2m(this.view);
+        // Do not Change before something actually changed.
+        if (areArrayEqual(newModel, this.model))
+          return;
+        this.model = this.v2m(this.view);
+      },
+      modelChanged: function() {
+/*        var old = this.v2m(this.view);
+        if (areArrayEqual(old, this.model))
+          return;*/
+        this.view = this.m2v(this.model);
+      },
+      ready: function () { 
+        this.view = this.m2v(this.model); 
+      },
+      m2v: function(m) {
+        if (m === undefined || m === null) 
+          return;
+        return m.map(deauthorify).join(',');
+      },
+      v2m: function(v) {
+        if (v === undefined || v === null)
+          return [];
+        if (v.trim().length === 0)
+          return [];
+        return v.split(',').filter(notEmpty).filter(containsChar('|')).map(authorify);
+      }
+    });
+  </script>
+</polymer-element>

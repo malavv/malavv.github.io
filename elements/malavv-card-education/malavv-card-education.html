@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="malavv-card-education">
+  <style>
+    :host {
+      margin: 0 10px;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      @apply(--layout-horizontal);
+    }
+
+    :host .labels {
+      justify-content: center;
+    }
+
+    :host .labels span {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    :host .content {
+      justify-content: center;
+    }
+
+    :host .content span {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+  </style>
+
+  <template>
+    <div class="labels" vertical layout flex one>
+      <span>Subject</span>
+      <span>Specialty</span>
+    </div>
+    <div class="content" vertical layout flex two>
+      <span>{{card.content.subject}}</span>
+      <span>{{card.content.speciality}}</span>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'malavv-card-education',
+      properties: {
+        card: Object
+      }
+    });
+  </script>
+</dom-module>

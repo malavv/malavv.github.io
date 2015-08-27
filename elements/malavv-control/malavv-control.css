@@ -1,0 +1,4 @@
+:host {
+  @apply(--layout-vertical);
+  width: 310px;
+};

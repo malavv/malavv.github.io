@@ -1,0 +1,39 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../bower_components/paper-ripple/paper-ripple.html">
+
+<link rel="import" href="my-icons.html">
+<link rel="import" href="my-icon-button.html">
+
+<polymer-element name="my-informations" vertical layout stretch>
+  <template>
+    <style>
+      :host {
+        display: block;
+        justify-content: space-around;
+      }
+    </style>
+    <my-icon-button flex icon="my-icons:email" size="100" label="Email" on-tap="{{onEmail}}"></my-icon-button>
+    <my-icon-button flex icon="my-icons:card" size="100" label="vCard" on-tap="{{onVCard}}"></my-icon-button>
+    <my-icon-button flex icon="my-icons:resume" size="100" label="Résumé" on-tap="{{onResume}}"></my-icon-button>
+    <my-icon-button flex icon="my-icons:papers" size="100" label="Publications" on-tap="{{onPublications}}"></my-icon-button>
+  </template>
+  <script>
+    Polymer('my-informations', {
+      onEmail: function() { 
+        window.top.location.href = "mailto:maxime.lavigne@mail.mcgill.ca";
+      },
+      onVCard: function() { 
+        window.top.location.href = "https://www.linkedin.com/profile/view?id=50640870";
+      },
+      onResume: function() { 
+        window.top.location.href = "data/2013-11-17.pdf";
+      },
+      onPublications: function() {
+        window.top.location.href = "https://www.researchgate.net/profile/Maxime_Lavigne";
+      }
+    });
+  </script>
+</polymer-element>

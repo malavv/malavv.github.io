@@ -1,0 +1,138 @@
+<!-- Globals -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer-filters/polymer-filters.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+
+<polymer-element
+    name="card-content" 
+    attributes="card" 
+    horizontal layout>
+  <template>
+    <link rel="stylesheet" type="text/css" href="../../css/card-content.css">
+    
+    <template bind ref="{{card.category}}"></template>
+
+    <template id="competition">
+      <div class="competition">
+        <div class="position" vertical layout>
+          <span class="ordinal">{{card.content.position | toOrdinal}}</span>
+          <span class="value">{{card.content.position}}</span>
+          <span class="of">{{card.content.outOf}}</span>
+        </div>
+        <div class="keywords" vertical layout>
+          <template repeat="{{keyword in card.content.keywords }}">
+            <div>{{keyword}}</div>
+          </template>
+        </div>
+      <div>
+    </template>
+    <template id="education">
+      <div class="education" horizontal layout>
+        <div class="labels" vertical layout flex one>
+          <span>Subject</span>
+          <span>Specialty</span>
+        </div>
+        <div class="content" vertical layout flex two>
+          <span>{{card.content.subject}}</span>
+          <span>{{card.content.speciality}}</span>
+        </div>
+      </div>
+    </template>
+    <template id="internship">
+      <div class="internship" horizontal layout>
+        <template repeat="{{k in card.content.keywords}}">
+          <paper-shadow z="1">{{k}}</paper-shadow>
+        </template>
+      </div>
+    </template>
+    <template id="project">
+      <div class="project" horizontal layout>
+        
+        <div class="keywords" vertical layout flex>
+          <div class="inner" horizontal layout flex>
+            <template repeat="{{keyword in card.content.keywords}}">
+              <paper-shadow z="1">{{keyword}}</paper-shadow>
+            </template>
+          </div>
+          <div class="label">Keywords</div>
+        </div>
+        <div class="authors" vertical layout flex>
+          <div vertical layout flex>
+            <template repeat="{{author in card.content.authors}}">
+              <paper-shadow z="1"><a href="{{author.ref}}">{{author.name}}</a></paper-shadow>
+            </template>
+            <paper-shadow z="1">and myself</paper-shadow>
+          </div>
+          <div class="label">Authors</div>
+        </div>
+
+
+      </div>
+    </template>
+    <template id="publications">
+      <div class="publications" horizontal layout>
+        <div class="abstract" vertical layout flex three>
+          <div vertical layout flex>
+              {{card.content.abstract | truncate(140, true)}}
+          </div>
+        </div>
+        <div class="authors" vertical layout flex two>
+          <div vertical layout flex>
+            <template repeat="{{author in card.content.authors}}">
+              <paper-shadow z="1"><a href="{{author.ref}}">{{author.name}}</a></paper-shadow>
+            </template>
+            <paper-shadow z="1">and myself</paper-shadow>
+          </div>
+          <div class="label">Authors</div>
+        </div>
+      </div>
+    </template>
+    <template id="starredProject">
+      <div class="starredProject" vertical layout>
+        <div class="desc">
+          {{card.content.description | truncate(210, true)}}
+        </div>
+        <div class="link">
+          <a href="{{card.content.link}}">{{card.content.link | truncate(38, true)}}</a>
+        </div>
+      </div>
+    </template>
+    <template id="blog">
+      <div class="blog" vertical layout>
+        <div class="desc">
+          {{card.content.description | truncate(210, true)}}
+        </div>
+        <div class="link">
+          <a href="{{card.content.link}}">Go to Article</a>
+        </div>
+      </div>
+    </template>
+    <template id="club">
+      <div class="club" vertical layout>
+        <div class="keywords" horizontal layout>
+          <template repeat="{{keyword in card.content.keywords}}">
+            <paper-shadow z="1">
+              {{keyword}}
+            </paper-shadow>
+          </template>
+        </div>
+        <div class="link">
+          <a href="{{card.content.link}}">Go to Webpage</a>
+        </div>
+      </div>
+    </template>
+
+  </template>
+  <script>
+    Polymer('card-content', {
+      toOrdinal: function(n) {
+        switch(n % 10) {
+          case 1: return "st";
+          case 2: return "nd";
+          case 3: return "rd";
+          default: return "th";
+        }
+      }
+    });
+  </script>
+</polymer-element>

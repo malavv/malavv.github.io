@@ -1,0 +1,44 @@
+<!-- General -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+<link rel="import" href="../../bower_components/polymer-filters/polymer-filters.html">
+
+<polymer-element 
+    name="card-array"
+    attributes="model"
+    horizontal layout>
+  <template>
+    <input value="{{view}}" flex>
+  </template>
+  <script>
+
+    function isSameIsh(lhs, rhs) {
+      if (lhs === undefined || lhs === null || rhs === undefined || rhs === null) 
+        return false;
+      return lhs.trim() === rhs.trim();
+    }
+
+    Polymer('card-array', {
+      view: "",
+      viewChanged: function() { this.view2model(); },
+      modelChanged: function() { this.model2view(); },
+      ready: function () { this.model2view(); },
+      model2view: function() {
+        var newView;
+        if (this.model === undefined) 
+          return;
+        newView = this.model.toString();
+        if (isSameIsh(newView, this.view))
+          return;
+        this.view = newView;
+      },
+      view2model: function() {
+        if (this.view.trim().length === 0) {
+          this.data = [];
+          return;
+        }
+        this.model = this.view.split(',').map(function(item) { return item.trim(" "); });
+      }
+    });
+  </script>
+</polymer-element>

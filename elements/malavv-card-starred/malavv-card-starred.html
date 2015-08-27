@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="malavv-card-starred">
+  <style>
+    :host {
+      @apply(--layout-vertical);
+    };
+    :host .desc {
+      margin: 10px 15px 3px 15px;
+      font-size: 0.8em;
+      text-align: justify;
+      height: 80px;
+    }
+
+    :host .link {
+      text-align: center;
+      font-size: 0.7em;
+      width: 100%;
+    }
+  </style>
+
+  <template>
+    <div class="desc">{{card.content.description}}</div>
+    <div class="link">
+      <a href="{{card.content.link}}">{{card.content.link}}</a>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'malavv-card-starred',
+      properties: {
+        card: Object
+      }
+    });
+  </script>
+</dom-module>

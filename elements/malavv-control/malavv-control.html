@@ -1,0 +1,98 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link href="../../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../../bower_components/iron-icon/iron-icon.html" rel="import">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+<dom-module id="malavv-control">
+
+  <link rel="stylesheet" type="text/css" href="malavv-control.css">
+
+  <style>
+  :host {
+    display: block;
+    position: relative;
+    justify-content: space-around;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 400ms ease-in-out;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  iron-icon {
+    fill: #2A7DB0;
+    transition: all 200ms ease-in-out;
+  }
+  .large {
+    width: 100px;
+    height: 100px;
+  }
+  span {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transition: all 200ms ease-in-out;
+    opacity: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+
+  :host(:hover) {
+    opacity: 1;
+  }
+
+  :host(:hover) span {
+    top: 45%;
+    left: 65%;
+    opacity: 1;
+  }
+  :host(:hover) core-icon {
+    padding-right: 20px;
+  }
+
+  </style>
+
+
+  <template>
+    <iron-icon class="large" icon="{{icon}}" size="{{size}}"></iron-icon>
+    <span>{{label}}</span>
+    <paper-ripple class="recenteringTouch">
+  </template>
+
+  <script>
+    Polymer({
+      is: 'malavv-control',
+      properties: {
+        /**
+         * The label of the button.
+         *
+         * @attribute label
+         * @type string
+         * @default ''
+         */
+        label: String,
+        /**
+         * (optional) Specifies the icon name or index in the set of icons
+         * available in the icon set. If using this property, load the icon
+         * set separately where the icon is used. Should not use `src`
+         * if you are using this property.
+         *
+         * @attribute icon
+         * @type string
+         * @default ''
+         */
+        icon: String,
+        size: {
+          type: Number,
+          value: 24
+        },
+        z: {
+          type: Number,
+          value: 1
+        }
+      }
+    });
+  </script>
+</dom-module>
