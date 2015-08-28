@@ -2,14 +2,15 @@
 
 <link rel="import" href="../malavv-control/malavv-control.html">
 <link rel="import" href="../malavv-icons/malavv-icons.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
 
 <dom-module id="malavv-infobar">
 
   <style>
   :host {
     @apply(--layout-vertical);
-
     width: 310px;
+
   };
 
   .name {
@@ -51,6 +52,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     background-image: url('../../img/internal/me.png');
+    /*@apply(--shadow-elevation-2dp);*/
   }
   .panel {
     @apply(--layout-vertical);
@@ -63,27 +65,34 @@
   }
   #controls {
     @apply(--layout-vertical);
-    /**@apply(--layout-center); */
     @apply(--layout-flex);
+    display: block;
+    position: relative;
+    @apply(--shadow-elevation-4dp);
   }
   .control {
     @apply(--layout-flex); 
   }
+
+  .test {
+    /**@apply(--layout-flex);  
+    @apply(--layout-vertical);*/
+  }
   </style>
 
   <template>
-
-    <div id="top-card">
-      <div class="panel">
-        <div class="name">{{name}}</div>
-        <div class="workTitle">{{workTitle}}</div>
-        <div class="handle" class="layout horizontal flex">
-          <img src="../../img/internal/profile.png" />
-          <span>{{handle}}</span>
+    <paper-material elevation="1">
+      <div id="top-card">
+        <div class="panel">
+          <div class="name">{{name}}</div>
+          <div class="workTitle">{{workTitle}}</div>
+          <div class="handle" class="layout horizontal flex">
+            <img src="../../img/internal/profile.png" />
+            <span>{{handle}}</span>
+          </div>
         </div>
       </div>
-    </div>
-
+    </paper-material>
     <div id="controls">
       <malavv-control icon="malavv-icons:email" size="100" label="Email" on-tap="onEmailCtrl" class="control"></malavv-control>
       <malavv-control icon="malavv-icons:card" size="100" label="vCard" on-tap="onVCardCtrl" class="control"></malavv-control>

@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
 
 <link rel="import" href="../malavv-editor/malavv-editor.html">
 <link rel="import" href="../malavv-infobar/malavv-infobar.html">
@@ -13,28 +14,34 @@
   <style>
     :host {
       @apply(--layout-horizontal);
+      font-family: 'RobotoDraft', sans-serif;
     }
     :host #cards {
       @apply(--layout-horizontal);
       @apply(--layout-flex);
       @apply(--layout-wrap); 
-
-      font-family: 'RobotoDraft', sans-serif;
-      background-image: url('../../img/texture9.jpg');
+      
+      background-color: #fafafa;
       overflow-y: scroll;
       position: relative;
       padding: 10px;
     }
 
-    iron-pages {
+    :host iron-pages {
       @apply(--layout-fit);
-      margin: auto;
       overflow-y: hidden;
     }
 
     :host #main {
       @apply(--layout);
       height: 100%;
+    }
+    :host paper-material {
+      z-index: 1;
+      @apply(--layout-vertical);
+    }
+    :host malavv-infobar {
+      @apply(--layout-flex);
     }
   </style>
 
@@ -51,7 +58,9 @@
       <admin-manager cards="{{cards}}"></admin-manager>
       <div id="main">
         <!-- Left Sidebar -->
-        <malavv-infobar></malavv-infobar>
+        <paper-material elevation="2">
+          <malavv-infobar></malavv-infobar>
+        </paper-material>
         
         <!-- Cards Dashboard -->
         <div id="cards">
