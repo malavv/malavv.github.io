@@ -7,32 +7,28 @@
 
   <style>
   :host {
-    @apply(--layout-vertical)
+    @apply(--layout-vertical);
+
     width: 310px;
   };
 
-  :host .panel {
-    background-color: black;
-    display: block;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    height: 160px;
-    background-image: url('../../img/internal/me.png');
-  }
-  :host .panel .name {
+  .name {
     font-size: 1.5em;
     font-weight: 300;
     padding-top: 24px;
   }
+
   :host .panel .workTitle {
     font-size: 1em;
     color: #004907;
   }
-  :host .panel .handle {
+  .handle {
+    @apply(--layout-horizontal);
+    @apply(--layout-end);
+    @apply(--layout-flex);
     font-size: 1.5em;
     color: #3289C8;
     font-weight: bold;
-    align-items: flex-end;
     padding-bottom: 10px;
   }
   :host .panel .handle > img {
@@ -48,16 +44,35 @@
     float: right;
     opacity: 0.7;
   }
+
+  #top-card {
+    height: 160px;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-image: url('../../img/internal/me.png');
+  }
+  .panel {
+    @apply(--layout-vertical);
+    @apply(--layout-center);
+    background-color: white;
+    opacity: 0.7;
+    float: right;
+    width: 175px;
+    height: 100%;
+  }
   </style>
 
   <template>
 
-    <div class="panel" class="layout vertical center">
-      <div class="name">{{name}}</div>
-      <div class="workTitle">{{workTitle}}</div>
-      <div class="handle" class="layout horizontal flex">
-        <img src="../../img/internal/profile.png" />
-        <span>{{handle}}</span>
+    <div id="top-card">
+      <div class="panel">
+        <div class="name">{{name}}</div>
+        <div class="workTitle">{{workTitle}}</div>
+        <div class="handle" class="layout horizontal flex">
+          <img src="../../img/internal/profile.png" />
+          <span>{{handle}}</span>
+        </div>
       </div>
     </div>
 
