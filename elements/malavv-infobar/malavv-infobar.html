@@ -3,6 +3,7 @@
 <link rel="import" href="../malavv-control/malavv-control.html">
 <link rel="import" href="../malavv-icons/malavv-icons.html">
 <link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
 
 <dom-module id="malavv-infobar">
 
@@ -16,7 +17,7 @@
   .name {
     font-size: 1.5em;
     font-weight: 300;
-    padding-top: 24px;
+    padding-top: 11px;
   }
 
   :host .panel .workTitle {
@@ -39,11 +40,9 @@
     padding-right: 6px;
   }
   :host .panel .handle > span {}:host .panel {
-    background-color: white;
     height: 100%;
     width: 175px;
     float: right;
-    opacity: 0.7;
   }
 
   #top-card {
@@ -51,14 +50,16 @@
     display: block;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    background-image: url('../../img/internal/me.png');
+    background-image: url('../../img/internal/me_muhc_weird2.jpg');
+    background-size: 160px 160px;
+    background-repeat: no-repeat;
+    background-color: #d3d3d3;
     /*@apply(--shadow-elevation-2dp);*/
+    /*@apply(--layout-horizontal);*/
   }
   .panel {
     @apply(--layout-vertical);
     @apply(--layout-center);
-    background-color: white;
-    opacity: 0.7;
     float: right;
     width: 175px;
     height: 100%;
@@ -73,6 +74,9 @@
   .control {
     @apply(--layout-flex); 
   }
+  iron-image {
+    width: 120px;
+  }
 
   .test {
     /**@apply(--layout-flex);  
@@ -83,6 +87,7 @@
   <template>
     <paper-material elevation="1">
       <div id="top-card">
+        <!-- <iron-image src="../../img/internal/me_muhc_weird2.jpg" sizing="cover"></iron-image> -->
         <div class="panel">
           <div class="name">{{name}}</div>
           <div class="workTitle">{{workTitle}}</div>
