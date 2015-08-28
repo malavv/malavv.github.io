@@ -9,49 +9,52 @@
   <link rel="stylesheet" type="text/css" href="malavv-control.css">
 
   <style>
-  :host {
-    display: block;
-    position: relative;
-    justify-content: space-around;
-    cursor: pointer;
-    opacity: 0.9;
-    transition: opacity 400ms ease-in-out;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
+    :host {
+      @apply(--layout-horizontal);
+      display: block;
+      position: relative;
+      justify-content: space-around;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: opacity 400ms ease-in-out;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
 
-  iron-icon {
-    fill: #2A7DB0;
-    transition: all 200ms ease-in-out;
-  }
-  .large {
-    width: 100px;
-    height: 100px;
-  }
-  span {
-    position: absolute;
-    top: 45%;
-    left: 45%;
-    transition: all 200ms ease-in-out;
-    opacity: 0;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-  }
+    :host core-icon {
+      fill: #2A7DB0;
+      transition: all 200ms ease-in-out;
+    }
 
-  :host(:hover) {
-    opacity: 1;
-  }
+    :host .large {
+      width: 100px;
+      height: 100px;
+    }
 
-  :host(:hover) span {
-    top: 45%;
-    left: 65%;
-    opacity: 1;
-  }
-  :host(:hover) core-icon {
-    padding-right: 20px;
-  }
+    :host span {
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      transition: all 200ms ease-in-out;
+      opacity: 0;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+    }
 
+    :host(:hover) {
+      opacity: 1;
+    }
+
+    :host(:hover) span {
+      top: 45%;
+      left: 65%;
+      opacity: 1;
+    }
+
+    :host(:hover) core-icon {
+      padding-right: 20px;
+    }
   </style>
 
 

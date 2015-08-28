@@ -61,6 +61,14 @@
     width: 175px;
     height: 100%;
   }
+  #controls {
+    @apply(--layout-vertical);
+    /**@apply(--layout-center); */
+    @apply(--layout-flex);
+  }
+  .control {
+    @apply(--layout-flex); 
+  }
   </style>
 
   <template>
@@ -76,12 +84,12 @@
       </div>
     </div>
 
-    <div class="layout vertical flex">
-      <malavv-control icon="malavv-icons:email" size="100" label="Email" on-tap="onEmailCtrl" class="flex"></malavv-control>
-      <malavv-control icon="malavv-icons:card" size="100" label="vCard" on-tap="onVCardCtrl" class="flex"></malavv-control>
-      <malavv-control icon="malavv-icons:resume" size="100" label="Resume" on-tap="onResumeCtrl" class="flex"></malavv-control>
-      <malavv-control icon="malavv-icons:papers" size="100" label="Publications" on-tap="onPublicationsCtrl" class="flex"></malavv-control>
-      <malavv-control icon="malavv-icons:wiki" size="100" label="Wiki" on-tap="onWikiCtrl" class="flex"></malavv-control>
+    <div id="controls">
+      <malavv-control icon="malavv-icons:email" size="100" label="Email" on-tap="onEmailCtrl" class="control"></malavv-control>
+      <malavv-control icon="malavv-icons:card" size="100" label="vCard" on-tap="onVCardCtrl" class="control"></malavv-control>
+      <malavv-control icon="malavv-icons:resume" size="100" label="Resume" on-tap="onResumeCtrl" class="control"></malavv-control>
+      <malavv-control icon="malavv-icons:papers" size="100" label="Publications" on-tap="onPublicationsCtrl" class="control"></malavv-control>
+      <malavv-control icon="malavv-icons:wiki" size="100" label="Wiki" on-tap="onWikiCtrl" class="control"></malavv-control>
     </div>
   </template>
 
