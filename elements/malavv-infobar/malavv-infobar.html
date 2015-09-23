@@ -3,21 +3,39 @@
   <style>
   :host {
     @apply(--layout-vertical);
-    width: 310px;
-
+  };
+  
+  :host #top-card {
+    height: 160px;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-image: url('../../img/internal/me_muhc_weird2.jpg');
+    background-size: 160px 160px;
+    background-repeat: no-repeat;
+    background-color: #272822;
   };
 
-  .name {
+  :host .panel {
+    @apply(--layout-vertical);
+    @apply(--layout-center);
+    float: right;
+    width: 175px;
+    height: 100%;
+  }
+
+  :host .panel .name {
     font-size: 1.5em;
     font-weight: 300;
     padding-top: 11px;
+    color: #cdcdcd;
   }
 
   :host .panel .workTitle {
     font-size: 1em;
-    color: #004907;
+    color: #939393;
   }
-  .handle {
+  :host .panel .handle {
     @apply(--layout-horizontal);
     @apply(--layout-end);
     @apply(--layout-flex);
@@ -38,25 +56,6 @@
     float: right;
   }
 
-  #top-card {
-    height: 160px;
-    display: block;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    background-image: url('../../img/internal/me_muhc_weird2.jpg');
-    background-size: 160px 160px;
-    background-repeat: no-repeat;
-    background-color: #f3f3f3;
-    /*@apply(--shadow-elevation-2dp);*/
-    /*@apply(--layout-horizontal);*/
-  }
-  .panel {
-    @apply(--layout-vertical);
-    @apply(--layout-center);
-    float: right;
-    width: 175px;
-    height: 100%;
-  }
   #controls {
     @apply(--layout-vertical);
     @apply(--layout-flex);
@@ -80,7 +79,6 @@
   <template>
     <paper-material elevation="1">
       <div id="top-card">
-        <!-- <iron-image src="../../img/internal/me_muhc_weird2.jpg" sizing="cover"></iron-image> -->
         <div class="panel">
           <div class="name">{{name}}</div>
           <div class="workTitle">{{workTitle}}</div>
