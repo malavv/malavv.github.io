@@ -3,7 +3,7 @@
   "cards": [
     {
       "title": "Laval Virtual",
-      "secondary": "Intl Competition",
+      "secondary": "International Competition",
       "category": "competition",
       "date": {
         "start": "April 2012",
@@ -36,8 +36,7 @@
       "image": "cards/polytechnique.png",
       "tags": [
         "C++",
-        "CS",
-        "Algorithms"
+        "Theoretical CS"
       ],
       "content": {
         "position": 2,

@@ -21,11 +21,17 @@
     :host div.summary {
       @apply(--layout-horizontal);
       font-size: 0.8em;
+      padding-left: 10px;
     };
 
     :host iron-pages {
       @apply(--layout-flex);
+      @apply(--layout-horizontal);
       overflow: hidden;
+    };
+
+    :host iron-pages * {
+      @apply(--layout-flex);
     };
 
     :host .footer {

@@ -3,54 +3,52 @@
 <dom-module id="malavv-card-compet">
   <style>
     :host {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
+      @apply(--layout-horizontal);
+      padding: 0 10px;
     }
 
     :host .position {
-      position: absolute;
       width: 70px;
-      height: 100px;
-      border-right: 1px solid black;
       text-align: center;
-      overflow: hidden;
     }
-
     :host .position .value {
-      position: relative;
-      top: -20px;
       font-size: 5em;
     }
-
     :host .position .ordinal {
-      position: relative;
-      right: -20px;
+      font-size: 1.1em;
+      margin-left: -5px;
     }
-
     :host .position .of {
-      top: -4px;
-      position: relative;
+      font-size: 0.8em;
+      font-color: #999;
+    }
+    :host .position .ofLine {
+      margin-top: -10px;
     }
 
     :host .keywords {
-      padding: 0;
-      margin: 0;
-      width: 75%;
-      padding-left: 75px;
+      @apply(--layout-flex);
+      @apply(--layout-vertical);
       font-size: 14px;
-      justify-content: center;
+      padding: 10px 0 10px 10px;
+    }
+    :host div.keywords div {
+      @apply(--layout-flex);
     }
   </style>
 
   <template>
-    <div class="position" class="layout vertical">
-      <span class="ordinal">{{toOrdinal(card.content.position)}}</span>
-      <span class="value">{{card.content.position}}</span>
-      <span class="of">{{card.content.outOf}}</span>
+    <div class="position">
+      <div>
+        <span class="value">{{card.content.position}}</span>
+        <span class="ordinal">{{toOrdinal(card.content.position)}}</span>
+      </div>
+      <div class="ofLine">
+        <span class="of">of</span>
+        <span class="ofValue">{{card.content.outOf}}</span>
+      </div>
     </div>
-    <div class="keywords" class="layout vertical">
+    <div class="keywords">
       <template is="dom-repeat" items="{{card.content.keywords}}">
         <div>{{item}}</div>
       </template>
@@ -58,11 +56,14 @@
   </template>
 
   <script>
+    (function() {
     Polymer({
       is: 'malavv-card-compet',
+
       properties: {
         card: Object
       },
+
       toOrdinal: function(n) {
         switch(n % 10) {
           case 1: return "st";
@@ -72,5 +73,6 @@
         }
       }
     });
+    })()
   </script>
 </dom-module>
