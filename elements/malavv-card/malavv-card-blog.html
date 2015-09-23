@@ -1,6 +1,4 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-
-<dom-module id="malavv-card-starred">
+<dom-module id="malavv-card-blog">
   <style>
     :host {
       @apply(--layout-vertical);
@@ -22,13 +20,13 @@
   <template>
     <div class="desc">{{card.content.description}}</div>
     <div class="link">
-      <a href="{{card.content.link}}">{{card.content.link}}</a>
+      <a href="{{card.content.link}}">Go to Article</a>
     </div>
   </template>
 
   <script>
     Polymer({
-      is: 'malavv-card-starred',
+      is: 'malavv-card-blog',
       properties: {
         card: Object
       }

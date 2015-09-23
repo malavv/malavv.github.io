@@ -1,21 +1,10 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-
-<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../bower_components/paper-material/paper-material.html">
-
-<link rel="import" href="../malavv-editor/malavv-editor.html">
-<link rel="import" href="../malavv-infobar/malavv-infobar.html">
-<link rel="import" href="../malavv-card/malavv-card.html">
-<link rel="import" href="../malavv-config/malavv-config.html">
-
 <dom-module id="malavv-site">
   <style>
     :host {
       @apply(--layout-horizontal);
       font-family: 'RobotoDraft', sans-serif;
     }
+
     :host #cards {
       @apply(--layout-horizontal);
       @apply(--layout-flex);
@@ -36,21 +25,19 @@
       @apply(--layout);
       height: 100%;
     }
+
     :host paper-material {
       z-index: 1;
       @apply(--layout-vertical);
     }
+
     :host malavv-infobar {
       @apply(--layout-flex);
     }
   </style>
 
   <template>
-    <iron-ajax
-        auto
-        url="{{dataUrl}}"
-        handleAs="json"
-        on-response="onSiteDataReceived"></iron-ajax>
+    <iron-ajax auto url="{{dataUrl}}" handleAs="json" on-response="onSiteDataReceived"></iron-ajax>
 
     <malavv-editor on-activated="onEditorActivated"></malavv-editor>
 
@@ -76,6 +63,7 @@
   <script>
     Polymer({
       is: 'malavv-site',
+      
       properties: {
         cards: Array,
         dataUrl: {
