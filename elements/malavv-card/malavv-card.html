@@ -1,166 +1,80 @@
 <dom-module id="malavv-card">
 
   <style>
-
     :host {
-    };
-
-    :host #details {
-      padding: 200px 10% 0;
-    }
-
-    :host {
+      @apply(--shadow-elevation-2dp);
+      @apply(--layout-vertical);
+      background-color: white;
       width: 330px;
       height: 200px;
-      display: block;
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       color: #555;
-      /* cursor: pointer; */
     }
 
-    :host .image {
-      width: 330px;
-      height: 200px;
-      z-index: 1;
-      position: absolute;
-      transition: all 0.5s ease-in-out;
-    }
-
-    :host .panel {
-      z-index: 2;
-      width: 300px;
-      height: 200px;
-      margin-left: 30px;
-      transition: all 0.5s ease-in-out;
-      background-color: #F9F9F9;
-      box-shadow: -5px 0 5px #333;
-      position: absolute;
-    }
-
-    :host .panel .head {
-      height: 37px;
-      border-bottom: 3px solid #BED89C;
-      justify-content: center;
-    }
-
-    :host .panel .head .smallSize {
+    :host div.title {
+      text-align: center;
       font-size: 1.3em;
-    }
+      border-bottom: 3px solid #BED89C;
+    };
 
-    :host .panel .head .normalSize {
-      font-size: 1.6em;
-    }
-
-    :host .panel .head .name {
-      margin: auto;
-    }
-
-    :host .panel .summaryInfo {
-      height: 20px;
-      padding: 0 10px;
-      margin: 0;
-      justify-content: space-between;
-    }
-
-    :host .panel .summaryInfo .type {
+    :host div.summary {
+      @apply(--layout-horizontal);
       font-size: 0.8em;
-    }
+    };
 
-    :host .panel .summaryInfo .date {
-      font-size: 0.8em;
-    }
+    :host iron-pages {
+      @apply(--layout-flex);
+      overflow: hidden;
+    };
 
-    :host .panel .footer {
+    :host .footer {
       height: 30px;
+      @apply(--layout-horizontal);
+    }
+
+    :host .footer .tags {
+      @apply(--layout-flex);
+      @apply(--layout-horizontal);
       overflow: hidden;
     }
 
-    :host .panel .footer .tags {
-      float: left;
-      width: 300px;
-      height: 60px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      margin-top: 4px;
-      overflow: hidden;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
-
-    :host .panel .footer .tags li {
-      background-color: #7986cb;
-      border-radius: 6px;
-      border: 1px solid #666E99;
-      color: #fff;
+    :host .footer .tags > div {
       padding: 3px;
       font-size: 10pt;
       margin-left: 5px;
     }
 
-    :host .panel .footer .cardType {
-      position: absolute;
+    :host .footer .cardType {
+      width: 100px;
       font-size: 12px;
       color: #222;
-      margin-top: 8px;
-      margin-right: 5px;
       font-weight: bold;
-      right: 0px;
     }
-
-    :host(.hovered) .image {
-      z-index: 3;
-      transform: translateX(20.5em);
-      background-color: white;
-      transition: all 0.5s ease-in-out;
-    }
-    :host .panel {
-      @apply(--layout-vertical);
-    };
-    :host .panel .content {
-      @apply(--layout-vertical);
-      @apply(--layout-flex);
-    };
   </style>
 
   <template>
-    <img class="image" src="{{toUrl(card.image)}}"/>
-    <div class="panel" class="layout vertical">
+    <div class="title">{{card.title}}</div>
+    <div class="summary">{{card.secondary}}</div>
 
-      <div class="head" class="layout horizontal">
-        <div class="name {{fromSizeToClass(card.title.length)}}">{{card.title}}</div>
+    <iron-pages selected="{{toIndex(card.category)}}">
+      <malavv-card-compet card="{{card}}"></malavv-card-compet>
+      <malavv-card-education card="{{card}}"></malavv-card-education>
+      <malavv-card-internship card="{{card}}"></malavv-card-internship>
+      <malavv-card-project card="{{card}}"></malavv-card-project>
+      <malavv-card-publications card="{{card}}"></malavv-card-publications>
+      <malavv-card-starred card="{{card}}"></malavv-card-starred>
+      <malavv-card-blog card="{{card}}"></malavv-card-blog>
+      <malavv-card-club card="{{card}}"></malavv-card-club>
+    </iron-pages>
+
+    <div class="footer">
+      <div class="tags">
+        <template is="dom-repeat" items="{{card.tags}}">
+          <div>{{item}}</div>
+        </template>
       </div>
-
-      <div class="summaryInfo" class="layout horizontal">
-        <div class="type">{{card.secondary | truncate(24, true)}}</div>
-        <!-- This is funky but needed to observe modification on the sub property -->
-        <div class="date">{{toDateString({start: card.date.start, end: card.date.end})}}</div>
-      </div>
-
-      <div class="content">
-        <iron-pages selected="{{toIndex(card.category)}}" class="flex">
-          <malavv-card-compet card="{{card}}"></malavv-card-compet>
-          <malavv-card-education card="{{card}}"></malavv-card-education>
-          <malavv-card-internship card="{{card}}"></malavv-card-internship>
-          <malavv-card-project card="{{card}}"></malavv-card-project>
-          <malavv-card-publications card="{{card}}"></malavv-card-publications>
-          <malavv-card-starred card="{{card}}"></malavv-card-starred>
-          <malavv-card-blog card="{{card}}"></malavv-card-blog>
-          <malavv-card-club card="{{card}}"></malavv-card-club>
-        </iron-pages>
-
-      </div>
-
-      <div class="footer">
-        <ol class="tags" class="layout horizontal">
-          <template is="dom-repeat" items="{{card.tags}}">
-            <li>{{item}}</li>
-          </template>
-        </ol>
-        <div class="cardType">{{toVisibleCategory(card.category)}}</div>
-      </div>
+      <div class="cardType">{{toVisibleCategory(card.category)}}</div>
     </div>
   </template>
 
