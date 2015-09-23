@@ -21,7 +21,7 @@
       overflow-y: hidden;
     }
 
-    :host #main {
+    :host iron-pages div {
       @apply(--layout);
       height: 100%;
     }
@@ -31,63 +31,70 @@
       @apply(--layout-vertical);
     }
 
-    :host malavv-infobar {
-      @apply(--layout-flex);
+    :host iron-pages div malavv-infobar {
+      @apply(--shadow-elevation-2dp);
       width: 310px;
+      min-width: 310px; 
+      z-index: 1;
     }
   </style>
 
   <template>
-    <iron-ajax auto url="{{dataUrl}}" handleAs="json" on-response="onSiteDataReceived"></iron-ajax>
-
-    <malavv-editor on-activated="onEditorActivated"></malavv-editor>
-
+    <!-- Data for the website -->
+    <iron-ajax auto 
+      url="../../data/data.json"
+      handle-as="json"
+      last-response="{{data}}"></iron-ajax>
+    
+    <!-- Template Selector between website and manager. -->
     <iron-pages selected="{{selected}}">
-      <admin-manager cards="{{cards}}"></admin-manager>
-      <div id="main">
-        <!-- Left Sidebar -->
-        <paper-material elevation="2">
-          <malavv-infobar></malavv-infobar>
-        </paper-material>
+      <div>
+        <malavv-infobar></malavv-infobar>
         
-        <!-- Cards Dashboard -->
         <div id="cards">
-          <template is="dom-repeat" items="{{cards}}">
+          <template is="dom-repeat" items="{{data.cards}}">
             <malavv-card card="{{item}}"></malavv-card>
           </template>
         </div>
       </div>
+      <admin-manager cards="{{data.cards}}"></admin-manager>
     </iron-pages>
-    </template>
+
+    <malavv-trigger trigger="{{editorTrigger}}" on-triggered="switchToEditor"></malavv-trigger>
   </template>
 
   <script>
+  (function() {
+    'use strict';
+
     Polymer({
       is: 'malavv-site',
       
       properties: {
-        cards: Array,
+        data: {
+          type: Object,
+          notify: true
+        },
         dataUrl: {
           type: String,
-          value: config.data.url
+          value: window.config.data.url
+        },
+        editorTrigger: {
+          type: Array,
+          value: window.config.editor.activator
         },
         selected: {
           type: Number,
-          value: 1
+          value: 0
         }
       },
-
-      onSiteDataReceived: function(evt) {
-        console.info('Received website data', evt.detail.response);
-        this.cards = evt.detail.response.cards;
-      },
-      onEditorActivated: function() {
+      switchToEditor: function() {
         console.info('Switched to editor mode.');
-        this.selected = 0;
+        this.selected = 1;
       }
     });
+
+  })()
   </script>
-
-
 
 </dom-module>

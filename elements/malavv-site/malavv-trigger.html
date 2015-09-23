@@ -1,0 +1,77 @@
+/**
+ * Classes looking for complex patterns of keys.
+ *
+ * Fires a 'triggered' event on triggering.
+ */
+<dom-module id="malavv-trigger">
+  <template></template>
+
+  <script>
+  (function() {
+    function evtsMatchesKeys(events, keys) {
+      return function(e, i) { 
+        return this.keyboardEventMatchesKeys(events[i], keys[i]); 
+      }
+    }
+
+    Polymer({
+      is: 'malavv-trigger',
+
+      behaviors: [
+        Polymer.IronA11yKeysBehavior
+      ],
+
+      properties: {
+        /**
+         * Running buffer of keys.
+         *
+         * As new keys come in, it only cares about the 'n' last keys.
+         */
+        buffer: {
+          type: Array,
+          value: function() {
+            return [];
+          }
+        },
+        /** Trigger to listen for. */
+        trigger: {
+          type: Array,
+          observer: '_onTriggerChanged'
+        },
+        /** Target to listen to. */
+        keyEventTarget: {
+          type: Object,
+          value: function() {
+            return document.body;
+          }
+        }
+      },
+
+      _onTriggerChanged: function() {
+        this.removeOwnKeyBindings();
+        this.addOwnKeyBinding('evt', 'hdl');
+
+        _.uniq(this.trigger).forEach(function(trigger) {
+          this.addOwnKeyBinding(trigger, '_updatePressed');
+        }, this);
+      },
+
+      _updatePressed: function(evt) {
+        if (this.buffer.length === this.trigger.length)
+          this.buffer.shift();
+        
+        this.buffer.push(evt);
+
+        if (this.buffer.length !== this.trigger.length)
+          return;
+
+        if (!this.buffer.every(evtsMatchesKeys(this.buffer, this.trigger), this))
+          return;
+
+        this.fire('triggered', { data: null });
+      }
+    });
+  })()    
+  </script>
+
+</dom-module>
