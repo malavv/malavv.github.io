@@ -13,5 +13,10 @@
 
 <body class="fullbleed" unresolved>
   <malavv-site class="fit"></malavv-site>
+  <script>
+    document.addEventListener('WebComponentsReady', function() {
+      document.querySelector('malavv-site').show();
+    });
+  </script>
 </body>
 </html>

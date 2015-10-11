@@ -6,9 +6,10 @@
     }
 
     :host #cards {
-      @apply(--layout-horizontal);
+      /*@apply(--layout-horizontal);
       @apply(--layout-flex);
-      @apply(--layout-wrap); 
+      @apply(--layout-wrap);*/ 
+      @apply(--layout-flex);
       
       background-color: #fafafa;
       overflow-y: scroll;
@@ -16,8 +17,8 @@
       padding: 10px;
     }
     :host #cards malavv-card {
-      margin-bottom: 10px;
-      margin-right: 10px;
+      /*margin-bottom: 10px;
+      margin-right: 10px;*/
     };
 
     :host paper-material {
@@ -44,11 +45,7 @@
     <malavv-infobar img="[[infobarImg]]"></malavv-infobar>
 
     <!-- Grid of cards -->
-    <div id="cards">
-      <template is="dom-repeat" items="{{data.cards}}">
-        <malavv-card card="{{item}}"></malavv-card>
-      </template>
-    </div>
+    <malavv-cards id="cards" cards="[[data.cards]]"></malavv-cards>
   </template>
 
   <script>
@@ -58,6 +55,11 @@
     Polymer({
       is: 'malavv-site',
       
+      behaviors: [
+        Polymer.NeonAnimatableBehavior,
+        Polymer.NeonAnimationRunnerBehavior
+      ],
+
       properties: {
         data: {
           type: Object,
@@ -70,7 +72,23 @@
         infobarImg: {
           type: String,
           value: window.config.me.mainImg
+        },
+
+
+        animationConfig: {
+          type: Object,
+          value: function() {
+            return {
+              'entry': [{
+                animatable: this.$.cards,
+                type: 'entry'
+              }]
+            };
+          }
         }
+      },
+      show: function() {
+        this.playAnimation('entry');
       }
     });
 
