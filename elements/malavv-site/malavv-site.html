@@ -11,14 +11,18 @@
       @apply(--layout-wrap);*/ 
       @apply(--layout-flex);
       
-      background-color: #fafafa;
-      overflow-y: scroll;
-      position: relative;
-      padding: 10px;
+
     }
     :host #cards malavv-card {
       /*margin-bottom: 10px;
       margin-right: 10px;*/
+    };
+
+    :host paper-drawer-panel {
+      overflow-y: scroll;
+      position: relative;
+      background-color: #fafafa;
+      padding: 10px;
     };
 
     :host paper-material {
@@ -45,7 +49,10 @@
     <malavv-infobar img="[[infobarImg]]"></malavv-infobar>
 
     <!-- Grid of cards -->
-    <malavv-cards id="cards" cards="[[data.cards]]"></malavv-cards>
+    <paper-drawer-panel id="drawer" right-drawer force-narrow="true">
+      <malavv-cards main id="cards" on-card-tap="cardTapHandler" cards="[[data.cards]]"></malavv-cards>
+      <div id="test" drawer>Drawer</div>
+    </paper-drawer-panel>
   </template>
 
   <script>
@@ -73,6 +80,10 @@
           type: String,
           value: window.config.me.mainImg
         },
+        drawerModel: {
+          type: Object,
+          observer: 'drawerContentHandler'
+        },
 
 
         animationConfig: {
@@ -87,8 +98,18 @@
           }
         }
       },
+      drawerContentHandler: function() {
+        this.$.test.innerText = this.drawerModel.__data__.card.title;
+      },
+      cardTapHandler: function(event, detail, sender) {
+        this.drawerModel = detail;
+        this.$.drawer.openDrawer();
+      },
       show: function() {
-        this.playAnimation('entry');
+        this.$.drawer.closeDrawer();
+        this.async(function() {
+          this.playAnimation('entry');
+        }, 1)
       }
     });
 

@@ -92,6 +92,15 @@
           type: Object
         }
       },
+
+      listeners: {
+        'tap': 'regularTap'
+      },
+
+      regularTap: function() {
+        this.fire('card-tap', this);
+      },
+
       titleSizeThreshold: 24,
       toUrl: function(baseUrl) {
         return '../../img/' + baseUrl;
