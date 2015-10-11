@@ -5,15 +5,16 @@
     @apply(--layout-vertical);
   };
   
-  :host #top-card {
+  :host #topCard {
     height: 160px;
     display: block;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    background-image: url('../../img/internal/me_muhc_weird2.jpg');
+    /*background-image: url('../../img/internal/me_muhc_weird2.jpg');*/
     background-size: 160px 160px;
     background-repeat: no-repeat;
     background-color: #272822;
+    background-image: var(--me-mainCard-img);
   };
 
   :host .panel {
@@ -69,16 +70,11 @@
   iron-image {
     width: 120px;
   }
-
-  .test {
-    /**@apply(--layout-flex);  
-    @apply(--layout-vertical);*/
-  }
   </style>
 
   <template>
     <paper-material elevation="1">
-      <div id="top-card">
+      <div id="topCard">
         <div class="panel">
           <div class="name">{{name}}</div>
           <div class="workTitle">{{workTitle}}</div>
@@ -102,6 +98,10 @@
     Polymer({
       is: 'malavv-infobar',
       properties: {
+        img: {
+          type: String,
+          observer: 'imgHandler'
+        },
         name: { 
           type: String,
           value: 'Maxime Lavigne'
@@ -114,6 +114,10 @@
           type: String,
           value: 'malavv'
         }
+      },
+      imgHandler: function() {
+        this.customStyle['--me-mainCard-img'] = 'url(' + this.img + ')';
+        this.updateStyles();
       },
       onEmailCtrl: function() {
         window.top.location.href = "mailto:maxime.lavigne@mail.mcgill.ca";

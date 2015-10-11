@@ -20,22 +20,12 @@
       margin-right: 10px;
     };
 
-    :host iron-pages {
-      @apply(--layout-fit);
-      overflow-y: hidden;
-    }
-
-    :host iron-pages div {
-      @apply(--layout);
-      height: 100%;
-    }
-
     :host paper-material {
       z-index: 1;
       @apply(--layout-vertical);
     }
 
-    :host iron-pages div malavv-infobar {
+    :host malavv-infobar {
       @apply(--shadow-elevation-2dp);
       width: 310px;
       min-width: 310px; 
@@ -46,25 +36,19 @@
   <template>
     <!-- Data for the website -->
     <iron-ajax auto 
-      url="../../data/data.json"
+      url="[[dataUrl]]"
       handle-as="json"
       last-response="{{data}}"></iron-ajax>
-    
-    <!-- Template Selector between website and manager. -->
-    <iron-pages selected="{{selected}}">
-      <div>
-        <malavv-infobar></malavv-infobar>
-        
-        <div id="cards">
-          <template is="dom-repeat" items="{{data.cards}}">
-            <malavv-card card="{{item}}"></malavv-card>
-          </template>
-        </div>
-      </div>
-      <admin-manager cards="{{data.cards}}"></admin-manager>
-    </iron-pages>
 
-    <malavv-trigger trigger="{{editorTrigger}}" on-triggered="switchToEditor"></malavv-trigger>
+    <!-- Left Infobar -->
+    <malavv-infobar img="[[infobarImg]]"></malavv-infobar>
+
+    <!-- Grid of cards -->
+    <div id="cards">
+      <template is="dom-repeat" items="{{data.cards}}">
+        <malavv-card card="{{item}}"></malavv-card>
+      </template>
+    </div>
   </template>
 
   <script>
@@ -83,18 +67,10 @@
           type: String,
           value: window.config.data.url
         },
-        editorTrigger: {
-          type: Array,
-          value: window.config.editor.activator
-        },
-        selected: {
-          type: Number,
-          value: 0
+        infobarImg: {
+          type: String,
+          value: window.config.me.mainImg
         }
-      },
-      switchToEditor: function() {
-        console.info('Switched to editor mode.');
-        this.selected = 1;
       }
     });
 

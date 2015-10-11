@@ -11,7 +11,8 @@
   ],
   "license": "GPLv2",
   "homepage": "malavv.com",
-  "dependencies": {
+  "devDependencies": {
+    "underscore": "~1.8.3",
     "iron-elements": "PolymerElements/iron-elements#~1.0.3",
     "paper-elements": "PolymerElements/paper-elements#~1.0.5",
     "polymer": "Polymer/polymer#^1.1.0"
