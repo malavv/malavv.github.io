@@ -1,0 +1,287 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --title-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --large-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  --rob-font: "roboto condensed light", sans-serif;
+  --cin-font: 'Cinzel', serif;
+}
+
+article[title] header {
+    background-image: url('assets/side.jpg');
+}
+article[title] span.greeting {
+    color: white;
+    font-size: 150%;   
+    font-style: italic;
+    text-align: center;
+    display: block;
+    font-family: var(--heading-font);
+}
+article[title] span.name {
+    font-size: 340%;
+    font-variant: small-caps;
+    font-weight: bold;
+    color: white;
+    font-family: var(--title-font);
+}
+
+article[summary] header {
+    background-image: url('assets/bar.jpg');
+}
+article[summary] section {
+    text-align: center;
+    color: rgb(51, 51, 51);
+    font-family: var(--heading-font);
+}
+
+article[summary] section div.sum-head div:first-child {
+    font-size: 230%;
+    font-style: italic;
+    font-weight: bold;
+    font-family: var(--large-font);
+}
+
+article[summary] section div.sum-head div:last-child {
+    color: rgb(179, 135, 61);
+    font-size: 140%;
+    font-style: italic;
+    padding-top: 20px;
+    font-family: var(--heading-font);
+}
+
+article[summary] section div.sum-works div:first-child {
+    font-weight: bold;
+    font-size: 150%;
+    font-family: var(--cin-font);
+    padding-top:30px;
+    font-weight: bold;
+}
+article[summary] section div.sum-works div:last-child {
+    padding-top: 10px; 
+    font-size: 75%;
+    line-height: 1.75;
+    font-family: var(--rob-font);
+    color: #777;
+}
+
+article[summary] section div.sum-tab {
+    flex: 2;
+}
+
+article[summary] section div.sum-tab > div > h3 {
+    font-family: var(--cin-font);
+    font-weight: 700;
+    font-size: 140%;
+    font-style: italic;
+}
+article[summary] section div.sum-tab > div > div {
+    font-family: var(--rob-font);
+    font-size: 80%;
+    color: #777;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+
+div.content article {
+    position: relative;
+}
+div.content article section {
+    background-color: #fff;
+}
+
+div.content article header {
+    height: 100vh;
+    
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Darkening Overlay */
+    background-color: #00000055;
+    background-blend-mode: overlay;
+}
+
+article header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+article[center] header {
+    width: 100%;
+}
+
+article[img-left] {
+    display: flex;
+    flex-direction: row;
+}
+article[img-left] header {
+    width: 50%;
+}
+article[img-left] section {
+    width: 50%;
+    background-color: red;
+}
+
+article[img-right] {
+    display: flex;
+    flex-direction: row-reverse;
+}
+article[img-right] header {
+    width: 50%;
+}
+article[img-right] section {
+    width: 50%;
+    background-color: red;
+}
+
+article[img-center] header {
+    width: 100%;
+}
+article[img-center] section {
+    background-color: gray;
+    position: absolute;
+    top: 17%;
+    bottom: 17%;
+    left: 10%;
+    right: 10%;
+}
+
+
+
+/* Articles */
+article header span.section-name {
+    color: white;
+    font-size: 130%;
+}
+
+section[column] {
+    display: flex;
+    flex-direction: column;
+}
+
+*[row] {
+    display: flex;
+    flex-direction: row;
+}
+*[wrap] {
+    flex-wrap: wrap;
+}
+
+*[flex-1] {
+    flex: 1;
+}
+
+
+
+*[card] {
+    padding: 10px;
+    line-height: 1.45;
+}
+*[card-title] { 
+    font-size: 140%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+*[card-note] {
+    font-size: 70%;
+    color: #555;
+}
+*[card-header] img {
+    width: 100px;    
+}
+*[col-2] div {
+    width: 50%;
+}
+*[col-3] > div {
+    width: 33%;
+}
+*[row-2] > div {
+    height: 50%;
+}
+
+*[cell] {
+}
+
+*[cell] img {
+  width: 90%;
+  margin: 0 5%;
+}
+*[cell] svg {
+  width: 90%;
+  margin: 0 5%;
+}
+
+*[cell-title] {
+    line-height: 1.45;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 150%;
+    font-style: italic;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*[cell-details] {
+    padding-top: 10px;
+    font-size: 90%;
+    text-align: center;
+}
+
+*[padding] {
+    padding: 20% 5%;
+}
+
+div.section-content {
+    height: 90%;
+    padding: 0 10%;
+    margin-top: 10%;
+}
+
+article header span.section-name {
+    font-size: 240%;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-variant: small-caps;
+}
+
+footer {
+    text-align: center;
+    height: 35px;
+    background-color: #000;
+    color: #bbb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: center;
+}
+
+div.sum-head {
+    padding-top: 35px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+div.sum-title {
+    color: rgb(51, 51, 51);
+    font-size: 180%;
+    font-style: italic;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div.sum-subtitle {
+    color: rgb(179, 135, 61);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 140%;
+    font-style: italic;
+    padding-top: 20px;
+}
+div.sum-works {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
