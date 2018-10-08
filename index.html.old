@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Maxime Lavigne</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/icons/parsec.ico">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700" rel="stylesheet">
+</head>
+<body>
+  <div class="content">
+
+    <article title>
+        <header>
+            <div>
+                <span class="greeting">Bonjour, Hi!</span><br />
+                <span class="name">— Maxime Lavigne —</span>
+            </div>
+        </header>
+        <section></section>
+    </article>
+
+    <article img-center summary>
+        <header></header>
+        <section style="text-align: center;" column>
+            <div flex-1 class="sum-head">
+                <div>Software Engineer</div>
+                <div>Medical and Clinical Informatics</div>
+            </div>
+            <div flex-1 class="sum-works">
+                <div>Current Works</div>
+                <div>
+                    PhD Epidemiology (ongoing)<br />
+                    MSc Family Medicine<br />
+                    Bachelor of Engineering
+                </div>
+            </div>
+            <div col-2 class="sum-tab" row wrap>
+                <div>
+                    <h3>PARSEC</h3>
+                    <div>Next Generation Clinical Self-<br/> Improvement Platform</div>
+                </div>
+                <div>
+                    <h3>POPHR</h3>
+                    <div>World Leading Population Health <br /> Record</div>
+                </div>
+                <div>
+                    <h3>SAM</h3>
+                    <div>Medication app for patients and their <br /> health professionals</div>
+                </div>
+                <div>
+                    <h3>SDIDS</h3>
+                    <div>Scalable Data Integration for Disease <br /> Surveillance</div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <article img-left><!-- Chosen Publications -->
+        <header style="background-image: url('assets/portrait-offset.jpg');">
+            <span class="section-name">Chosen Publications</span>
+        </header>
+        <section row wrap>
+            <div card>
+                <div card-title>AI Methods for Population and Public Health in Canada</div>
+                <div card-note>M Lavigne, DL Buckeridge, M Creator, S Hoffman; Report for the Institute of Population and Public Helath - CIHR</div>
+            </div>
+            <div card>
+                <div card-title>PopHR: a knowledge‐based platform to support integration, analysis, and visualization of population health data</div>
+                <div card-note>A Shaban‐Nejad, M Lavigne, A Okhmatovskaia, DL Buckeridge Annals of the New York Academy of Sciences 1387 (1), 44-53</div>
+            </div>
+            <div card>
+                <div card-title>Developing the Scalable Data Integration for Disease Surveillance (SDIDS) Platform</div>
+                <div card-note>D Buckeridge, M Lavigne, K Zinszer, A Okhmatovskaia, S Tu, C Nyulus, ... Online Journal of Public Health Informatics 8 (1)</div>
+            </div>
+            <div card>
+                <div card-title>A hybrid natural language approach to manage semantic interoperability for public health analytics</div>
+                <div card-note>M Lavigne, A Shaban-Nejad, A Okhmatovskaia, L Mondor, DL Buckeridge Proceedings of the 12th International Semantic Web Conference</div>
+            </div>
+            <div card>
+                <div card-title>Addressing the challenge of encoding causal epidemiological knowledge in formal ontologies: a practical perspective</div>
+                <div card-note>A Okhmatovskaia, A Shaban-Nejad, M Lavigne, DL Buckeridge MIE, 1125-1129</div>
+            </div>
+            <div card>
+                <div card-title>Audit and Feedback in Primary Care Effectiveness and Informatics</div>
+                <div card-note>M Lavigne, DL Buckeridge, JB, Hugues, Informatics for Health 2017, 2017</div>
+            </div>
+        </section>
+    </article>
+    <article img-right><!-- Free Time -->
+        <header style="background-image: url('assets/mountain-side.jpg');">
+            <span class="section-name">Free Time</span>
+        </header>
+        <section>
+            <div class="section-content" row wrap col-3>
+                <div cell>
+                    <img src="assets/soccer.jpg" />
+                    <div cell-title>McGill Soccer</div>
+                </div>
+                <div cell>
+                    <img src="assets/alambic.jpg" />
+                    <div cell-title>Micro-Distillation</div>
+                </div>
+                <div cell>
+                    <img src="assets/beer.jpg" />
+                    <div cell-title>Beer Blog</div>
+                    <div cell-details><a href="http://bieresdu.quebec/" target="_blank">bieresdu.quebec</a></div>
+                </div>
+                <div cell>
+                    <img src="assets/mountain.jpg" />
+                    <div cell-title>Mountaineering</div>
+                </div>
+                <div cell>
+                    <img src="assets/electronics.jpg" />
+                    <div cell-title>Electronics</div>
+                </div>
+                <div cell>
+                    <img src="assets/motorcycle.jpg" />
+                    <div cell-title>Motorcycling</div>
+                </div>
+            </div>
+        </section>
+    </article>
+    <article img-left> <!-- Connect With me -->
+        <header style="background-image: url('assets/wine.jpg');">
+            <span class="section-name">Connect With Me</span>
+        </header>
+        <section>
+            <div class="section-content" row wrap col-3>
+                <div cell onclick="window.open('mailto:maxime.lavigne@mail.mcgill.ca', '_blank');">
+                    <img src="assets/icons/email.svg" alt="Email" />
+                    <div cell-title>Email</div>
+                </div>
+                <div cell onclick="window.open('https://www.linkedin.com/in/maximelavigne/', '_blank');">
+                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+                    <div cell-title>LinkedIn</div>
+                </div>
+                <div cell onclick="window.open('https://github.com/malavv', '_blank');">
+                    <img src="assets/icons/github.svg" alt="GitHub" />
+                    <div cell-title>GitHub</div>
+                </div>
+                <div cell onclick="window.open('https://www.researchgate.net/profile/Maxime_Lavigne', '_blank');">
+                    <img src="assets/icons/researchgate.svg" alt="Research Gate" />
+                    <div cell-title>ResearchGate</div>
+                </div>
+                <div cell onclick="alert('Not available for the moment, email me instead.');">
+                    <img src="assets/icons/resume.svg" alt="Curriculum Vitea" />
+                    <div cell-title>Resume</div>
+                </div>
+                <div cell onclick="window.open('https://calendar.google.com/calendar?cid=ZHVndWlnbmVAZ21haWwuY29t', '_blank');">
+                    <img src="assets/icons/calendar.svg" alt="Calendar" />
+                    <div cell-title>Calendar</div>
+                </div>
+            </div>
+        </section>
+    </article>
+</div>
+<footer row>
+    <span flex-1>Copyright Maxime Lavigne 2017</span>
+    <span flex-1>Style inspired by http://www.garysheng.com/</span>
+    <span flex-1>Icons from https://iconmonstr.com/</span>
+</footer>
+</body>
+</html>

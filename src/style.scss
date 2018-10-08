@@ -1,18 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Cinzel:400,700");
+
 html, body {
   margin: 0;
   padding: 0;
 }
 
-:root {
-  --title-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --large-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  --rob-font: "roboto condensed light", sans-serif;
-  --cin-font: 'Cinzel', serif;
+.hello {
+  color: red;
+  font-family: 'Cinzel', sans-serif;
 }
 
+
 article[title] header {
-    background-image: url('assets/side.jpg');
+    background-image: url('./assets/side.jpg');
 }
 article[title] span.greeting {
     color: white;
@@ -30,8 +30,11 @@ article[title] span.name {
     font-family: var(--title-font);
 }
 
-article[summary] header {
-    background-image: url('assets/bar.jpg');
+article {
+  &[chosen] header { background-image: url('./assets/portrait-offset.jpg'); }
+  &[summary] header { background-image: url('./assets/bar.jpg'); }
+  &[free] header { background-image: url('./assets/mountain-side.jpg'); }
+  &[connect] header { background-image: url('./assets/wine.jpg'); }
 }
 article[summary] section {
     text-align: center;
@@ -172,8 +175,13 @@ section[column] {
     display: flex;
     flex-direction: row;
 }
-*[wrap] { flex-wrap: wrap; }
-*[flex-1] { flex: 1; }
+*[wrap] {
+    flex-wrap: wrap;
+}
+
+*[flex-1] {
+    flex: 1;
+}
 
 
 
@@ -251,9 +259,10 @@ footer {
     text-align: center;
     height: 35px;
     background-color: #000;
-    color: #bbb;
+    color: #999;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     align-items: center;
+    font-size: 80%;
 }
 
 div.sum-head {
