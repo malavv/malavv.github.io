@@ -96,6 +96,7 @@ div.content article {
 }
 div.content article section {
     background-color: #fff;
+    min-width: 600px;
 }
 
 div.content article header {
@@ -175,6 +176,11 @@ section[column] {
     display: flex;
     flex-direction: row;
 }
+*[col] {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
 *[wrap] {
     flex-wrap: wrap;
 }
@@ -182,8 +188,6 @@ section[column] {
 *[flex-1] {
     flex: 1;
 }
-
-
 
 *[card] {
     padding: 10px;
@@ -200,18 +204,25 @@ section[column] {
 *[card-header] img {
     width: 100px;    
 }
-*[col-2] div {
-    width: 50%;
-}
-*[col-3] > div {
-    width: 33%;
-}
-*[row-2] > div {
-    height: 50%;
-}
+*[col-2] > div { width: (100% / 2); }
+*[col-3] > div { width: (100% / 3); }
+*[row-2] > div { height: (100% / 2); }
 
 *[cell] {
 }
+
+*[cell] div[thumb] {
+  /*margin: 0 5%;*/
+  height: 200px;
+  width: 300px;
+}
+
+div[thumb=soccer] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 0%; }
+div[thumb=distil] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 0%; }
+div[thumb=review] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 50%; }
+div[thumb=hickin] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 50%; }
+div[thumb=electr] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 100%; }
+div[thumb=motorc] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 100%; }
 
 *[cell] img {
   width: 90%;
@@ -226,7 +237,7 @@ section[column] {
     line-height: 1.45;
     padding: 0 10px;
     text-align: center;
-    font-size: 150%;
+    font-size: 120%;
     font-style: italic;
     word-wrap: break-word;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -244,7 +255,7 @@ section[column] {
 
 div.section-content {
     height: 90%;
-    padding: 0 10%;
+    /*padding: 0 10%;*/
     margin-top: 10%;
 }
 
