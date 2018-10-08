@@ -172,6 +172,10 @@ section[column] {
     flex-direction: column;
 }
 
+*[stretch] { align-items: stretch; }
+*[center] { align-items: center; }
+*[btn] { cursor: pointer; }
+
 *[row] {
     display: flex;
     flex-direction: row;
@@ -179,7 +183,6 @@ section[column] {
 *[col] {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 }
 *[wrap] {
     flex-wrap: wrap;
@@ -225,9 +228,10 @@ div[thumb=electr] { background: url('./assets/collage.free-time.jpg') no-repeat 
 div[thumb=motorc] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 100%; }
 
 *[cell] img {
-  width: 90%;
+  width: 100px;
   margin: 0 5%;
 }
+
 *[cell] svg {
   width: 90%;
   margin: 0 5%;
