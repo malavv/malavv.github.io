@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new FaviconsWebpackPlugin('./src/assets/icons/parsec.png'),
+    new FaviconsWebpackPlugin('./src/assets/parsec.png'),
     new HtmlWebpackPlugin({ title: 'Maxime Lavigne' })
   ],
   optimization: {

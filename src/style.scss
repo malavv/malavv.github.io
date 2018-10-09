@@ -11,9 +11,7 @@ html, body {
 }
 
 
-article[title] header {
-    background-image: url('./assets/side.jpg');
-}
+
 article[title] span.greeting {
     color: white;
     font-size: 150%;   
@@ -31,11 +29,53 @@ article[title] span.name {
 }
 
 article {
-  &[chosen] header { background-image: url('./assets/portrait-offset.jpg'); }
-  &[summary] header { background-image: url('./assets/bar.jpg'); }
-  &[free] header { background-image: url('./assets/mountain-side.jpg'); }
-  &[connect] header { background-image: url('./assets/wine.jpg'); }
+    header {
+        height: 100vh;
+        
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        /*background-position: center;*/
+        background-repeat: no-repeat;
+        /*background-size: cover;*/
+
+        /* Darkening Overlay */
+        background-color: #00000055;
+        background-blend-mode: overlay;
+    }
+  &[title] header {
+    background-image: url('./assets/front.jpg');
+    background-size: cover;
+  }
+
+  &[summary] header {
+    background-image: url('./assets/collage.main.jpg');
+    background-position: 0% 0%; 
+    background-size: auto 400%;
+  }
+  &[chosen] header  {
+    background-image: url('./assets/collage.main.jpg');
+    background-position: 0% 33%; 
+    background-size: auto 400%;
+  }
+  &[free] header    { 
+    background-image: url('./assets/collage.main.jpg');
+    background-position: 0% 66%; 
+    background-size: auto 400%;
+  }
+  &[connect] header { 
+    background-image: url('./assets/collage.main.jpg');
+    background-position: 0% 100%; 
+    background-size: auto 400%;
+  }
 }
+
+div[thumb=soccer] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 0%; }
+div[thumb=distil] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 0%; }
+div[thumb=review] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 50%; }
+div[thumb=hickin] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 50%; }
+div[thumb=electr] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 100%; }
+div[thumb=motorc] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 100%; }
+
 article[summary] section {
     text-align: center;
     color: rgb(51, 51, 51);
@@ -99,19 +139,7 @@ div.content article section {
     min-width: 600px;
 }
 
-div.content article header {
-    height: 100vh;
-    
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 
-    /* Darkening Overlay */
-    background-color: #00000055;
-    background-blend-mode: overlay;
-}
 
 article header {
     display: flex;
@@ -220,20 +248,13 @@ section[column] {
   width: 300px;
 }
 
-div[thumb=soccer] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 0%; }
-div[thumb=distil] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 0%; }
-div[thumb=review] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 50%; }
-div[thumb=hickin] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 50%; }
-div[thumb=electr] { background: url('./assets/collage.free-time.jpg') no-repeat 0% 100%; }
-div[thumb=motorc] { background: url('./assets/collage.free-time.jpg') no-repeat 100% 100%; }
-
 *[cell] img {
   width: 100px;
   margin: 0 5%;
 }
 
 *[cell] svg {
-  width: 90%;
+  width: 100px;
   margin: 0 5%;
 }
 
