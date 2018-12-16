@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "This is a public repository hosting my personal website. Feel free to look around and take a glance at the code and the architecture.",
   "dependencies": {
+    "clean-webpack-plugin": "^0.1.19",
     "lodash": "^4.17.11",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },
   "private": true,
-  "devDependencies": {
-    "clean-webpack-plugin": "^0.1.19",
+  "devDependencies": {    
     "css-loader": "^1.0.0",
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^2.0.0",
