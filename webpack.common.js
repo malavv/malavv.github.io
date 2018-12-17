@@ -1,5 +1,4 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Path = require('path');
 
@@ -13,7 +12,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new FaviconsWebpackPlugin('./src/assets/parsec.png'),
     new HtmlWebpackPlugin({ title: 'Maxime Lavigne' })
   ],
   optimization: {
